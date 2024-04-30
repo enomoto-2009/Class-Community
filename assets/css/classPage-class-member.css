@@ -41,7 +41,7 @@
 }
 .classMenu {
     border-right: 1px solid #c4bcbc;
-    width: 220px;
+    width: 185px;
     height: 100vh;
     padding-top: 20px;
 }
@@ -55,18 +55,15 @@
     opacity: 0.6;
 }
 .listClassMneu__button--classMember {
-    padding: 5px 15px;
     font-size: 11px;
     opacity: 0.6;
 }
 .listClassMenu__button--learningRecords {
-    padding: 5px 15px;
     font-size: 11px;
     margin-top: 10px;
     font-size: 14px;
 }
 .listClassMenu__button--wacthPicture {
-    padding: 5px 15px;
     font-size: 11px;
     margin-top: 10px;
     font-size: 14px;
@@ -75,11 +72,10 @@
     opacity: 0.6;
 }
 .class_members {
-    width: 90%;
+    width: 100%-185px;
 }
 .class_member {
-    border-bottom: 1px solid #e0bfbf;
-    width: 100%;
+    width: 85%;
 }
 .class_member_name {
     font-size: 20px;
@@ -93,8 +89,6 @@
 .class_member__message {
     font-size: 15px;
     padding: 0 40px 20px 40px;
-}
-.class_member2 {
-    border-top: 1px solid #e0bfbf;
+    border-bottom: 1px solid #e0bfbf;
 }
 

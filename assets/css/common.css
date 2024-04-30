@@ -133,6 +133,7 @@ header {
 }
 .listMenu__classSelect:hover {
     opacity: 0.7;
+    color: #999696;
 }
 .listMenu__button {
     font-size: 14px;

@@ -24,7 +24,7 @@ if(!empty($_POST["profile"])) {
     $statement->bindValue(':profile', $_POST["profile"]);
     //SQL実行
     $statement->execute();
-    header("Location:{$url}classPage_class_member.php");
+    header("Location:{$url}schoolpage.php");
     
     exit;
     global $login_user;
@@ -47,7 +47,7 @@ if(!empty($_POST["profile"])) {
             <div class="mainTitle">
                 <h1 class="mainName__h1"><?php echo $login_user["name"]; ?>さん</h1>
                 <br>
-                <h2 class="mainName__h2">2年4組7番</h2>
+                <h2 class="mainName__h2"><?php echo $login_user["grade_id"]; ?>年<?php echo $login_user["class_id"]; ?>組</h2>
                 <p class="main__profile">プロフィール：<br>ここに自分の自己紹介を簡単に書いてください。<br>例えば、自分の趣味、SNSのアカウントなど<br>
 ＊このページはあなたのクラスページの中にあるクラスメンバーという項目に投稿されます。<br>
 ＊このページを投稿することによって学校内で新たなコミュニティを作ることができます。</p>
