@@ -56,7 +56,7 @@ global $login_user;
                     <p class="class_member_introduce">自己紹介:</p><?php echo $user["profile"]; ?>
                 </div>
             <?php endforeach; ?>
-        </div>
+            </div>
         </div>
     </main>
 </div>

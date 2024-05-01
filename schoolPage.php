@@ -1,4 +1,10 @@
 <?php require_once "functions.php"; ?>
+<?php
+if(empty($_SESSION["id"])) {
+    header("Location:{$url}index.php");
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
