@@ -61,9 +61,9 @@ $classes = get_query($get_class_sql,null,true);
                     <h2 class="passwordTitle"></h2>
                     <input name="password" type="password" id="password" class="login_formInput login-password_formInput" rows="100" placeholder="パスワードを入力"></input>
                     <p class="error_password_message delate">パスワードが間違っています</p>
-                    <input name="email" type="text" id="email" class="login_formInput login-email_formInput" rows="100" placeholder="メールアドレスを入力"></input>
+                    <input name="email" type="email" id="email" class="login_formInput login-email_formInput" rows="100" placeholder="メールアドレスを入力"></input>
                     <p class="error_email_message delate">メールアドレスが間違っています</p>
-                    <input name="school_id" type="text" class="login_formInput login-school_id-formInput" rows="100" placeholder="学校IDを入力"></input>
+                    <input name="school_id" type="text" id="school_id" class="login_formInput login-school_id-formInput" rows="100" placeholder="学校IDを入力"></input>
                     <p class="error_message_password_school_id"><?php echo $error_password_message; ?></p>
                     <button type="button" class="login-form_false_Button">ログイン</button>
                 </form>

@@ -10,10 +10,28 @@ body {
 /* main */
 .main {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 0 20px 0;
 }
 .logout_message {
     font-weight: bold;
     font-size: 60px;
-    margin-top: 50px;
-    padding: 50px 50px;
+}
+.login_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back_button {
+    font-size: 14px;
+    color: #fff;
+    background-color: #1877f2;
+    border-radius: 1000px;
+    box-shadow: 3px 3px 10px #2733914d;
+    padding: 5px;
+    transition: 0.3s;
+}
+.back_button:hover {
+    opacity: 0.6;
 }
