@@ -1,4 +1,8 @@
 <?php require_once "functions.php";
+if(empty($_SESSION["id"])) {
+    header("Location:{$url}index.php");
+    exit;
+}
 $student_id = $_SESSION["id"];
 $login_id = $_SESSION["id"];
 if(empty($_GET["g"]) || empty($_GET["c"])) {

@@ -1,5 +1,9 @@
 <?php require_once "functions.php"; ?>
 <?php 
+    if(empty($_SESSION["id"])) {
+        header("Location:{$url}index.php");
+        exit;
+    }
     $db = get_db();
     if(empty($_GET["search_keyword"])) {
         $_GET["search_keyword"] = "";

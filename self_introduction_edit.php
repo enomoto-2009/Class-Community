@@ -4,7 +4,10 @@ $student_id = $_SESSION["id"];
 $db_name = "mysql:host=localhost; dbname=class_community;";
 $db_username = "root";
 $db_password = "";
-
+if(empty($_SESSION["id"])) {
+    header("Location:{$url}index.php");
+    exit;
+}
 //db接続
 try {
     $db = new PDO($db_name, $db_username, $db_password);

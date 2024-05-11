@@ -1,5 +1,9 @@
 <?php require_once "functions.php"; ?>
-<?php 
+<?php
+    if(empty($_SESSION["id"])) {
+        header("Location:{$url}index.php");
+        exit;
+    }
     $db = get_db();
     global $login_user;
     if(!empty($_POST["subject"])) {
