@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(187,181,181,20%);
+}
+aside {
+    background-color: white;
+}
+.main {
+    width: 100%;
+}
+.edit {
+    opacity: 0.6;
+}

@@ -1,0 +1,35 @@
+.listClassMenu__button--wacthPicture {
+    opacity: 0.6;
+}
+.check_text {
+    font-size: 35px;
+    font-weight: bold;
+    padding: 0px 20px;
+}
+.picture_name {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 0px 20px;
+}
+.picture_text {
+    font-size: 15px;
+    padding: 0px 20px;
+}
+.picture {
+    width: 100%;
+    padding: 20px 30px;
+}
+.class_picture {
+    width: 35%;
+    height: 27%;
+    padding: 15px;
+}
+.button_back {
+    padding-left: 100px;
+}
+.edit {
+    opacity: 0.6;
+}
+.listMenu__classSelect {
+    width: 10%;
+}

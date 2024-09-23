@@ -5,10 +5,10 @@ if(empty($_SESSION["id"])) {
 }
 $student_id = $_SESSION["id"];
 $login_id = $_SESSION["id"];
-if(empty($_GET["g"]) || empty($_GET["c"])) {
-    header("Location:{$url}schoolpage.php");
-    exit;
-}
+// if(empty($_GET["g"]) || empty($_GET["c"])) {
+//     header("Location:{$url}schoolpage.php");
+//     exit;
+// }
 $class = empty($_GET["c"])? "": $_GET["c"];
 $grade = empty($_GET["g"])? "": $_GET["g"];
 $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where login.id = :login_id";
@@ -23,6 +23,8 @@ $get_user_sql = "select * from login inner join class on class.id = class_id inn
 $datas = [":grades" => $grades,":classes" => $classes];
 $users_db = get_query($get_user_sql,$datas,true);
 global $login_user;
+$c = $_GET["c"];
+$g = $_GET["g"];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -47,7 +49,7 @@ global $login_user;
                 <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
             </div>
             <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="" class="">クラスの写真</a></button>
+                <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="./classPage_class_pictures_notUpload.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスの写真</a></button>
             </div>
             <div class="listClass__button1">
                 <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>

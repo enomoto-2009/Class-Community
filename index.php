@@ -125,6 +125,7 @@ function create_button_click(event) {
     let login_form_false_Button = document.querySelector(".login-form_false_Button");
     let login_school_id_formInput = document.querySelector(".login-school_id-formInput");
     let sub_text = document.querySelector(".sub_text");
+    let error_message_password_school_id = document.querySelector(".error_message_password_school_id");
     let create_formTitle = document.querySelector(".create-formTitle");
     let create_name_formInput = document.querySelector(".create-name-formInput");
     let create_password_formInput = document.querySelector(".create-password-formInput");
@@ -147,6 +148,8 @@ function create_button_click(event) {
     create_button.classList.add("delate");
     sub_text.classList.remove("open");
     sub_text.classList.add("delate");
+    error_message_password_school_id.classList.remove("open");
+    error_message_password_school_id.classList.add("delate");
     create_formTitle.classList.remove("delate");
     create_formTitle.classList.add("open");
     create_name_formInput.classList.remove("delate");
@@ -174,6 +177,7 @@ function back_button_click(event) {
     let login_school_id_formInput = document.querySelector(".login-school_id-formInput");
     let login_form_false_Button = document.querySelector(".login-form_false_Button");
     let sub_text = document.querySelector(".sub_text");
+    let error_message_password_school_id = document.querySelector(".error_message_password_school_id");
     let create_formTitle = document.querySelector(".create-formTitle");
     let create_name_formInput = document.querySelector(".create-name-formInput");
     let create_password_formInput = document.querySelector(".create-password-formInput");
@@ -196,6 +200,8 @@ function back_button_click(event) {
     create_button.classList.add("open");
     sub_text.classList.remove("delate");
     sub_text.classList.add("open");
+    error_message_password_school_id.classList.remove("delate");
+    error_message_password_school_id.classList.add("open");
     create_formTitle.classList.remove("open");
     create_formTitle.classList.add("delate");
     create_name_formInput.classList.remove("open");

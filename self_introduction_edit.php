@@ -1,7 +1,7 @@
-<?php require_once "functions.php"; 
+<?php require_once "functions.php";
 $student_id = $_SESSION["id"];
 // //db接続情報
-$db_name = "mysql:host=localhost; dbname=class_community;";
+$db_name = "mysql:host=localhost; dbname=class-community;";
 $db_username = "root";
 $db_password = "";
 if(empty($_SESSION["id"])) {
@@ -27,11 +27,26 @@ if(!empty($_POST["profile"])) {
     $statement->bindValue(':profile', $_POST["profile"]);
     //SQL実行
     $statement->execute();
+    
     header("Location:{$url}schoolpage.php");
     
     exit;
     global $login_user;
 }
+
+// if(!empty($_FILES["profile_image"]["name"])) {
+//     $file_name = $_FILES["profile_image"]["name"];
+//     $file_path = "/". $file_name;
+//     $file_type = pathinfo($file_path,PATHINFO_EXTENSION);
+//     move_uploaded_file($_FILES["profile_image"]["tmp_name"],$file_type);
+//     $sql = "UPDATE login SET picture_file_name = :picture_file_name WHERE id = :id";
+//     //SQLステートメントの準備
+//     $statement = $db->prepare($sql);
+//     $statement->bindValue(':id', $student_id);
+//     $statement->bindValue(':picture_file_name', $file_name);
+//     //SQL実行
+//     $statement->execute();
+// }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -61,6 +76,10 @@ if(!empty($_POST["profile"])) {
                     <button type="submit" class="listMenu__button listMenu__button--class"><i class="fa-solid fa-plus"></i>クラスページに投稿</button>
                 </div>
                     </form>
+                    <!-- <form method="post" enctype="multipart/form-data">
+                        <input type="file" class="profile_image" name="profile_image">
+                        <button type="submit">submit</button>
+                    </form> -->
             </div>
         </main>
 </body>

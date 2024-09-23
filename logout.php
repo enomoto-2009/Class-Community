@@ -1,5 +1,13 @@
 <?php require_once "functions.php";
 ?>
+<?php
+if(empty($_SESSION["id"])) {
+    header("Location:{$url}index.php");
+    exit;
+}
+$_SESSION = [];
+session_destroy();
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -17,11 +25,3 @@
     </div>
 </body>
 </html>
-<?php
-if(empty($_SESSION["id"])) {
-    header("Location:{$url}index.php");
-    exit;
-}
-$_SESSION = [];
-session_destroy();
-?>
