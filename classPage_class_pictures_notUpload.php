@@ -5,10 +5,10 @@ if(empty($_SESSION["id"])) {
 }
 $student_id = $_SESSION["id"];
 $login_id = $_SESSION["id"];
-// if(empty($_GET["g"]) || empty($_GET["c"])) {
-//     header("Location:{$url}schoolpage.php");
-//     exit;
-// }
+if(empty($_GET["g"]) || empty($_GET["c"])) {
+    header("Location:{$url}schoolpage.php");
+    exit;
+}
 $class = empty($_GET["c"])? "": $_GET["c"];
 $grade = empty($_GET["g"])? "": $_GET["g"];
 $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where login.id = :login_id";
@@ -49,7 +49,7 @@ global $login_user;
                 <div class="classWraper">
                     <div class="classMenu">
                     <div class="listClass__button1 classMember">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
+                        <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="./classpage_class_member.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスメンバー</a></button>
                     </div>
                     <div class="listClass__button1">
                         <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="./classPage_class_pictures_notUpload.php" class="">クラスの写真</a></button>
@@ -63,7 +63,7 @@ global $login_user;
                     <p class="class_member_name"><?php echo $user["user_name"]; ?></p>
                     <img src="<?=$user["image_type"] ?>" alt="" class="class_picture">
                     <div class="class_member__message">
-                        <p class="class_member_introduce">概要:</p><?php echo $user["text"]; ?>
+                        <p class="class_member_introduce">タイトル:</p><?php echo $user["text"]; ?>
                     </div>
                 <?php endforeach; ?>
             </div>

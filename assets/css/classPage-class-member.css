@@ -72,12 +72,12 @@
     width: 100%;
 }
 .class_member_name {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bold;
     padding: 20px 40px;
 }
 .class_member_introduce {
-    font-size: 20px;
+    font-size: 15px;
     margin-top: -10px;
 }
 .class_member__message {

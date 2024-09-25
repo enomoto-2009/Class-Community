@@ -15,15 +15,19 @@
             <?php include "parts/aside.php"; ?>
         </aside>
         <main class="main">
-            <form name="upload-form" action="./classpage_class_pictures.php" method="post" enctype="multipart/form-data" class="">
+            <form name="upload-form" action="./classpage_class_pictures.php" method="post" enctype="multipart/form-data" class="form">
                 <input type="hidden" name="max_size" value="209751">
-                <p>アップロード画像を選択<br>
-                    <input type="file" name="image1">
-                    <p class=""><?php echo $login_user["grade_id"]; ?>年<?php echo $login_user["class_id"]; ?>組</p>
-                    <p class=""><?=$login_user["name"]?>さん</p>
-                    <input type="text" name="img_name" placeholder="text">
-                    <button type="submit" name="operation" value="upload">アップロード</button>
-                </p>
+                <p class="name"><?=$login_user["name"]?>さん</p>
+                <p class="class"><?php echo $login_user["grade_id"]; ?>年<?php echo $login_user["class_id"]; ?>組</p><br>
+                <p>アップロード画像を選択</p>
+                    <input type="file" name="image1"><br>
+                    <p class="">＊下記に写真の詳細を入力↓</p>
+                    <div class="">
+                        <textarea name="img_name" class="text" rows="7" cols="50" required></textarea>
+                    </div><br>
+                    <div class="upload_button">
+                        <button type="submit" name="operation" value="upload" class="listMenu__button listMenu__button--introduce"><i class="fa-solid fa-upload"></i>アップロード</button>
+                    </div>
             </form>
         </main>
     </div>

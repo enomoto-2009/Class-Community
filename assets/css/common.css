@@ -151,6 +151,11 @@ header {
 .listMenu__button:hover {
     opacity: 0.6;
 }
+.listMenu__button--introduce {
+    width: 185px;
+    padding: 5px 15px;
+    font-size: 11px;
+}
 .listMenu__button--class {
     width: 185px;
     padding: 5px 15px;

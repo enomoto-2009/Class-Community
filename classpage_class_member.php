@@ -5,10 +5,10 @@ if(empty($_SESSION["id"])) {
 }
 $student_id = $_SESSION["id"];
 $login_id = $_SESSION["id"];
-// if(empty($_GET["g"]) || empty($_GET["c"])) {
-//     header("Location:{$url}schoolpage.php");
-//     exit;
-// }
+if(empty($_GET["g"]) || empty($_GET["c"])) {
+    header("Location:{$url}schoolpage.php");
+    exit;
+}
 $class = empty($_GET["c"])? "": $_GET["c"];
 $grade = empty($_GET["g"])? "": $_GET["g"];
 $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where login.id = :login_id";
