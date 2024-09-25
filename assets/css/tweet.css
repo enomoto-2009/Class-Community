@@ -15,10 +15,10 @@ aside {
     opacity: 0.6;
 }
 .form {
-    width: 80%;
+    width: 90%;
     height: 75%;
     font-size: 14px;
-    padding: 40px 30px;
+    padding: 20px 30px 40px 30px;
     background-color: #ffff;
     border: 1px solid #b9b3b3;
     border-radius: 10px;
@@ -33,4 +33,75 @@ aside {
     border-radius: 10px;
     width: 100%;
     padding: 7px 15px;
+}
+/* 自己紹介 */
+.mainTitle {
+    width: 100%;
+}
+.mainName__h1 {
+    color: #050210cf;
+    opacity: 3.0;
+    font-family: OCRB;
+    font-size: 30px;
+}
+.mainName__h2 {
+    color: #050210cf;
+    font-family: OCRB;
+    font-size: 20px;
+}
+.main__profile {
+    font-size: 14px;
+}
+.mainTitle__textrarea {
+    border: 1px solid #e0bfbf;
+    font-size: 14px;
+    border-radius: 6px;
+    width: 100%;
+    padding: 15px;
+    word-break: break-all;
+}
+.mainTitle__textrareaForm {
+    width: 90%;
+    height: 80%;
+    font-size: 14px;
+    padding: 20px 30px 40px 30px;
+    background-color: #ffff;
+    border: 1px solid #b9b3b3;
+    border-radius: 10px;
+    flex-direction: column;
+    font-family: bold;
+}
+.mainBackButton {
+    font-size: 14px;
+    position: relative;
+	width: 1.2em;
+	height: 1.2em;
+	border-top: 0.1em solid #fcfcfc;
+	border-left: 0.1em solid transparent;
+	border-right: 0.1em solid #fcfcfc;
+	border-bottom: 0.1em solid #fcfcfc;
+	border-radius: 100% 100% 100% 100%;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+    margin-left: 5px;
+    margin-top: -25px;
+}
+.mainBackButton::before {
+    content: "";
+	position: absolute;
+	top: 0.05em;
+	left: -0.25em;
+	width: 0;
+	height: 0;
+	border-top: 0.25em solid transparent;
+	border-right: 0.5em solid #fcfcfc;
+	border-bottom: 0.25em solid transparent;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.listMenu__buttonLayout5 {
+    padding: 10px 40px;
+}
+.fa-plus {
+    font-size: 15px;
 }

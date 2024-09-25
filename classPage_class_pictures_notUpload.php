@@ -58,12 +58,14 @@ global $login_user;
                         <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
                     </div>
             </div>
-            <?php foreach($users_db as $user): ?>
-                <div class="class_member">
-                    <p class="class_member_name"><?php echo $user["user_name"]; ?></p>
-                    <img src="<?=$user["image_type"] ?>" alt="" class="class_picture">
-                    <div class="class_member__message">
-                        <p class="class_member_introduce">タイトル:</p><?php echo $user["text"]; ?>
+            <div class="classMembers">
+                <?php foreach($users_db as $user): ?>
+                    <div class="class_member">
+                        <p class="class_member_name"><?php echo $user["user_name"]; ?></p>
+                        <img src="<?=$user["image_type"] ?>" alt="" class="class_picture">
+                        <div class="class_member__message">
+                            <p class="class_member_introduce">タイトル:</p><?php echo $user["text"]; ?>
+                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>

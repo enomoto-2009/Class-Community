@@ -1,6 +1,12 @@
 .edit {
     opacity: 1;
 }
+.classMenu {
+    border-right: 1px solid #c4bcbc;
+    width: 170.4px;
+    height: 100vh;
+    padding-top: 20px;
+}
 .classMember {
     opacity: 1;
 }
@@ -9,6 +15,24 @@
     font-weight: bold;
     padding-left: 30px;
 }
+.class_picture {
+    width: 400px;
+}
 .class_member_introduce {
     font-weight: bold;
+}
+.classMembers {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 calc(10%/2);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.class_member {
+    border: 1px solid #e0bfbf;
+    background-color: white;
+    width: 45%;
+    border-radius: 10px;
 }
