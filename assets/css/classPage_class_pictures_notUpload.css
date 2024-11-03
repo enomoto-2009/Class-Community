@@ -16,7 +16,7 @@
     padding-left: 30px;
 }
 .class_picture {
-    width: 400px;
+    width: 600px;
 }
 .class_member_introduce {
     font-weight: bold;
@@ -29,10 +29,11 @@
     padding: 0 calc(10%/2);
     margin-top: 20px;
     margin-bottom: 20px;
+    height: 100%;
 }
 .class_member {
     border: 1px solid #e0bfbf;
     background-color: white;
-    width: 45%;
+    width: 47%;
     border-radius: 10px;
 }

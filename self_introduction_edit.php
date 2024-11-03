@@ -1,7 +1,7 @@
 <?php require_once "functions.php";
 $student_id = $_SESSION["id"];
 // //db接続情報
-$db_name = "mysql:host=localhost; dbname=class-community;";
+$db_name = "mysql:host=localhost; dbname=class_community;";
 $db_username = "root";
 $db_password = "";
 if(empty($_SESSION["id"])) {

@@ -62,7 +62,7 @@
                     <div class="contribtion-name"><?php echo $login_user["name"]; ?></div>
                     <div class="contribtion-class">22期4組</div>
                     <div class="contribtion-contents contribtion-contents_title">
-                        <p class="contribtion-contents-message">＊題名を書いて下さい</p>
+                        <p class="contribtion-contents-message">＊テーマを書いて下さい</p>
                         <textarea class="contribtion-contents-textrarea"  id="" name="subject" rows="2" cols="50" ></textarea>
                     </div>
                     <div class="contribtion-contents delate">
@@ -108,7 +108,7 @@
                                 <p class="date"><?php echo $post["create_date"]; ?></p>
                             </div>
                             <div class="thread_title">
-                                <p class="title">題名:<?php echo $post["subject"]; ?></p>
+                                <p class="title">テーマ:<?php echo $post["subject"]; ?></p>
                             </div>
                             <div class="thread_text">
                                 <p class="text">質問内容:<?php echo $post["text"]; ?></p>

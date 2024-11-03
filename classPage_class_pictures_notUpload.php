@@ -23,6 +23,8 @@ $get_user_sql = "select * from login inner join class on class.id = class_id inn
 $datas = [":grades" => $grades,":classes" => $classes];
 $users_db = get_query($get_user_sql,$datas,true);
 global $login_user;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

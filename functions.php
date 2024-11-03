@@ -4,7 +4,7 @@
     $url = preg_replace("#\/[a-zA-Z0-9\-_.]+\.php$#u", "/" ,$url);
     function get_db() {
         //db接続情報
-        $db_name = "mysql:host=localhost; dbname=class-community;";
+        $db_name = "mysql:host=localhost; dbname=class_community;";
         $db_username = "root";
         $db_password = "";
         //db接続
