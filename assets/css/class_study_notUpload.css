@@ -1,26 +1,22 @@
-.edit {
-    opacity: 1;
-}
+
 .classMenu {
     border-right: 1px solid #c4bcbc;
     width: 170.4px;
     height: 100vh;
     padding-top: 20px;
 }
-.classMember {
-    opacity: 1;
-}
+
 .class_member_name {
     font-size: 25px;
     font-weight: bold;
     padding-left: 30px;
 }
 .class_picture {
-    width: 600px;
+    width: 700px;
+    margin-bottom: 30px;
 }
 .class_member_introduce {
     font-weight: bold;
-    font-size: 17px;
 }
 .classMembers {
     display: flex;
@@ -31,10 +27,21 @@
     margin-top: 20px;
     margin-bottom: 20px;
     height: 100%;
+    width: 70%;
 }
 .class_member {
     border: 1px solid #e0bfbf;
     background-color: white;
     width: 47%;
     border-radius: 10px;
+}
+.class_member_introduce {
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+.listClassMenu__button--classMember {
+    opacity: 1.0;
+}
+.listClassMenu__button--learningRecords {
+    opacity: 0.6;
 }

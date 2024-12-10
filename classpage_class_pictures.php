@@ -3,6 +3,9 @@ require_once("./functions.php");
 // if(empty($_POST['img_name']) || ($_POST['user_name'])) {
 //     echo "ユーザー名またはファイルを選択してください";
 // }
+if(empty($_SESSION["id"])) {
+    header("Location:{$url}index.php");
+}
 $db = get_db();
 function getExtension(string $file): string
 {
@@ -45,7 +48,7 @@ $destinationPath = generateDestinationPath();
 $file_name = basename($_FILES["image1"]["name"]);
 $moved = move_uploaded_file($_FILES["image1"]["tmp_name"],$file_name);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $imgName = $_POST['img_name'];
+    $imgName = $_POST['image'];
     $userName = $login_user["name"];
     $user_grade = $login_user["grade_id"];
     $user_class = $login_user["class_id"];

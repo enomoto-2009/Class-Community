@@ -7,14 +7,14 @@
     $db = get_db();
     global $login_user;
     if(!empty($_POST["subject"])) {
-        $set_post_sql = "insert into community_posts(user_id, subject, text, create_date)
-        values (:user_id, :subject, :text, now() )";
-        $param = [":user_id"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"]];
+        $set_post_sql = "insert into community_posts(user_name, subject, text, create_date)
+        values (:user_name, :subject, :text, now() )";
+        $param = [":user_name"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"]];
         $statement = $db->prepare($set_post_sql);
         $statement->execute($param);
     }elseif(!empty($_POST["replay_message"])){
-        $set_replay_sql = "insert into community_replays(post_id,user_id,text,create_date) values (:post_id, :user_id, :text, now())";
-        $param = [":post_id" => $_POST["post_id"], ":user_id" => $_SESSION["id"], ":text" => $_POST["replay_message"]];
+        $set_replay_sql = "insert into community_replays(post_id,user_name,text,create_date) values (:post_id, :user_name, :text, now())";
+        $param = [":post_id" => $_POST["post_id"], ":user_name" => $_SESSION["id"], ":text" => $_POST["replay_message"]];
         $statement = $db->prepare($set_replay_sql);
         $statement->execute($param);
     }
@@ -102,7 +102,7 @@
                         <?php foreach($posts as $post): ?> 
                         <div class="thread">
                             <div class="thread_user_name">
-                                <a href="find_students.php" class="user" style="text-decoration: underline"><p class=""><?php echo $grade_users[$post["user_id"]]; ?>年<?php echo $class_users[$post["user_id"]]; ?>組<?php echo $users[$post["user_id"]]; ?></p></a>
+                                <a href="find_students.php" class="user" style="text-decoration: underline"><p class=""><?php echo $grade_users[$post["user_name"]]; ?>年<?php echo $class_users[$post["user_name"]]; ?>組<?php echo $users[$post["user_name"]]; ?></p></a>
                             </div>
                             <div class="thread_create_date">
                                 <p class="date"><?php echo $post["create_date"]; ?></p>
@@ -133,7 +133,7 @@
                                         <?php foreach($replays as $replay): ?>
                                             <div class="replay_comment">
                                                 <p class="replay_comment_date"><?php echo $replay["create_date"]; ?></p>
-                                                <a href="find_students.php" class="replay_comment_name" style="text-decoration: underline"><?php echo $users[$replay["user_id"]]; ?></a>
+                                                <a href="find_students.php" class="replay_comment_name" style="text-decoration: underline"><?php echo $users[$replay["user_name"]]; ?></a>
                                                 <p class="replay_comment_text"><?php echo $replay["text"]; ?></p>
                                             </div>
                                         <?php endforeach; ?>

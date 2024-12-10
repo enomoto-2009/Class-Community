@@ -31,8 +31,8 @@ global $login_user;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-member.css">
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-pictures.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class_pictures.css">
     <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class_pictures_notUpload.css">
     <title>Class Community--classpage_class_pictures</title>
     <?php include "parts/head.php"; ?>
@@ -44,29 +44,16 @@ global $login_user;
             <?php include "parts/aside.php"; ?>
         </aside>
         <main class="main">
-            <div class="class_members">
-                <div class="classTitle">
-                    <h2 class="classTitleName">中等<?php echo $_GET["g"]; ?>年<?php echo $_GET["c"]; ?>組</h2>
-                </div>
-                <div class="classWraper">
-                    <div class="classMenu">
-                    <div class="listClass__button1 classMember">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="./classpage_class_member.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスメンバー</a></button>
-                    </div>
-                    <div class="listClass__button1">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="./classPage_class_pictures_notUpload.php" class="">クラスの写真</a></button>
-                    </div>
-                    <div class="listClass__button1">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
-                    </div>
-            </div>
+            <?php include "parts/classpage.php"; ?>
             <div class="classMembers">
                 <?php foreach($users_db as $user): ?>
                     <div class="class_member">
-                        <p class="class_member_name"><?php echo $user["user_name"]; ?></p>
+                        <p style="color:white;">ユーザー</p>
+                        <a class="class_member_name" href="find_students.php" style="text-decoration: underline"><?php echo $user["user_name"]; ?></a>
+                        <p class=""></p>
                         <img src="<?=$user["image_type"] ?>" alt="" class="class_picture">
                         <div class="class_member__message">
-                            <p class="class_member_introduce">タイトル:</p><?php echo $user["text"]; ?>
+                            <p class="class_member_introduce">title:    <?php echo $user["text"]; ?></p>
                         </div>
                     </div>
                 <?php endforeach; ?>

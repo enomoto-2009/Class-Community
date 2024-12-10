@@ -30,7 +30,8 @@ $g = $_GET["g"];
 <html lang="ja">
 <head>
 <?php include "parts/head.php"; ?>
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-member.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class_member.css">
 </head>
 <body>
 <?php include "parts/header.php"; ?>
@@ -39,25 +40,12 @@ $g = $_GET["g"];
         <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
-        <div class="class_members">
-        <div class="classTitle">
-            <h2 class="classTitleName">中等<?php echo $_GET["g"]; ?>年<?php echo $_GET["c"]; ?>組</h2>
-        </div>
-        <div class="classWraper">
-        <div class="classMenu">
-            <div class="listClass__button1 classMember">
-                <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="" class="">クラスメンバー</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="./classPage_class_pictures_notUpload.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスの写真</a></button>
-            </div>
-            <div class="listClass__button1">
-                <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="" class="">クラスの学習記録</a></button>
-            </div>
-        </div>
+        <?php include "parts/classpage.php"; ?>
             <?php foreach($users_db as $user): ?>
             <div class="class_member">
-                <p class="class_member_name"><?php echo $user["name"]; ?></p>
+                <p class="" style="color:rgb(187 181 181 / 20%);">user</p>
+                <a class="class_member_name" href="./find_students.php" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
+                <p class=""style="color:rgb(187 181 181 / 20%);">text</p>
                 <div class="class_member__message">
                     <p class="class_member_introduce">自己紹介:</p><?php echo $user["profile"]; ?>
                 </div>
