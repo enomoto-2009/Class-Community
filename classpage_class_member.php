@@ -19,7 +19,7 @@ $get_user_sql = "select * from login inner join class on class.id = class_id inn
     $users = array_column($users_db,"name","id");
     $grades = empty($_GET["g"])? "$users_db[0]['grade_number']": $_GET["g"];
     $classes = empty($_GET["c"])? "$users_db[0]['class_number']": $_GET["c"];
-    $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where grade_number = :grades and class_number = :classes";
+    $get_user_sql = "select * from login inner join class on class.id = class_id inner join grade on grade.id = grade_id where grade_number = :grades and class_number = :classes order by name";
 $datas = [":grades" => $grades,":classes" => $classes];
 $users_db = get_query($get_user_sql,$datas,true);
 global $login_user;

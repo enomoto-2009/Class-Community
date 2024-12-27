@@ -20,7 +20,9 @@
 }
 .class_member_introduce {
     font-weight: bold;
-    font-size: 17px;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-top: 1px;
 }
 .classMembers {
     display: flex;

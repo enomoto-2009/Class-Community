@@ -50,11 +50,9 @@ global $login_user;
                     <div class="class_member">
                         <p style="color:white;">ユーザー</p>
                         <a class="class_member_name" href="find_students.php" style="text-decoration: underline"><?php echo $user["user_name"]; ?></a>
+                        <p class="class_member_introduce">title:    <?php echo $user["text"]; ?></p>
                         <p class=""></p>
                         <img src="<?=$user["image_type"] ?>" alt="" class="class_picture">
-                        <div class="class_member__message">
-                            <p class="class_member_introduce">title:    <?php echo $user["text"]; ?></p>
-                        </div>
                     </div>
                 <?php endforeach; ?>
             </div>
