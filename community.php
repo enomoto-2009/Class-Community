@@ -7,13 +7,52 @@
     $db = get_db();
     global $login_user;
     if(!empty($_POST["subject"])) {
-        $set_post_sql = "insert into community_posts(user_name, subject, text, create_date)
-        values (:user_name, :subject, :text, now() )";
-        $param = [":user_name"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"]];
+        // 画像処理
+        function getExtension(string $file): string
+        {
+            return pathinfo($file,PATHINFO_EXTENSION);
+        }
+        function validate(): array
+        {
+            if($_FILES["image"]["error"] !== UPLOAD_ERR_OK) {
+                return [false,"アップロードエラーを検出しました"];
+            }
+            if(!in_array(getExtension($_FILES["image"]["name"]),["jpg","jpeg","png","gif"])) {
+                return [false,"画像ファイルのみアップデート可能です"];
+            }
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mimeType = finfo_file($finfo,$_FILES["image"]["tmp_name"]);
+            finfo_close($finfo);
+            if(!in_array($mimeType,["image/jpeg","image/png","image/gif"])) {
+                return [false,"不正な画像ファイル形式です"];
+            }
+            if(filesize($_FILES["image"]["tmp_name"]) > 1024 * 1024 *2) {
+                return [false,"ファイルサイズは2mbまでとしてください"];
+            }
+            return[true,null];
+        }
+        list($result,$message) = validate();
+        if($result !== true) {
+            echo "[Error]",$message;
+            return;
+        }
+        if(empty($_SESSION["id"])) {
+            header("Location:{$url}index.php");
+            exit;
+        }else {
+            $student_id = $_SESSION["id"];
+        }
+        $file_name = basename($_FILES["image"]["name"]);
+        $moved = move_uploaded_file($_FILES["image"]["tmp_name"],$file_name);
+
+        // 画像処理終了
+        $set_post_sql = "insert into community_posts(user_name, subject, text, create_date,img_name)
+        values (:user_name, :subject, :text, now(), :img_name)";
+        $param = [":user_name"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"], ":img_name" => "$file_name"];
         $statement = $db->prepare($set_post_sql);
         $statement->execute($param);
     }elseif(!empty($_POST["replay_message"])){
-        $set_replay_sql = "insert into community_replays(post_id,user_name,text,create_date) values (:post_id, :user_name, :text, now())";
+        $set_replay_sql = "insert into community_replays(post_id,user_name,text,create_date,) values (:post_id, :user_name, :text, now())";
         $param = [":post_id" => $_POST["post_id"], ":user_name" => $_SESSION["id"], ":text" => $_POST["replay_message"]];
         $statement = $db->prepare($set_replay_sql);
         $statement->execute($param);
@@ -56,7 +95,7 @@
         <?php include "parts/aside.php"; ?>
     </aside>
     <main class="main">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="contribtion-wrapper">
                 <div class="contribtion">
                     <div class="contribtion-name"><?php echo $login_user["name"]; ?></div>
@@ -68,6 +107,7 @@
                     <div class="contribtion-contents delate">
                         <p class="contribtion-contents-message">＊投稿内容を書いて下さい</p>
                         <textarea class="contribtion-contents-textrarea"  id="" name="text" rows="6" cols="50" ></textarea>
+                        <input type="file" name="image"><br>
                     </div>
                     <div class="contribtion-button">
                         <button type="button" class="listMenu__button next_button"><i class="fa-solid fa-arrow-right"></i>進む</button>

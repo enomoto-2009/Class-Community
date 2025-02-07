@@ -1,6 +1,19 @@
 .edit {
     opacity: 1;
 }
+.listMenu__button_replay {
+    font-size: 10px;
+    color: #fff;
+    background-color: #1877f2;
+    display: flex;
+    border-radius: 1000px;
+    box-shadow: 3px 3px 10px rgba(39, 51, 145, .3);
+    justify-content: center;
+    padding: 5px 0px;
+    align-items: center;
+    width: 100px;
+    transition: 0.3s;
+}
 .classMenu {
     border-right: 1px solid #c4bcbc;
     width: 170.4px;
@@ -20,7 +33,7 @@
 }
 .class_member_introduce {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 10px;
     margin-left: 20px;
     margin-top: 1px;
 }
@@ -39,4 +52,52 @@
     background-color: white;
     width: 47%;
     border-radius: 10px;
+}
+/* 返信 */
+.replay_message {
+    border-radius: 10px;
+    border: 1px solid #e0bfbf;
+    font-size: 10px;
+    padding: 10px;
+    word-break: break-all;
+}
+.replay_comments {
+    border-top: 1px solid #e0bfbf;
+    font-size: 10px;
+}
+.replay_comments_display_button {
+    padding-top: 10px;
+}
+.delate_message_button {
+    font-size: 10px;
+    width: 130px;
+}
+
+.delate {
+    height: 0;
+    overflow: hidden;
+}
+.replay_comments_hide.open {
+    overflow: auto;
+    height: auto;
+}
+.replay_comment {
+    border-bottom: 1px solid #e0bfbf;
+}
+.replay_comment_name {
+    color: #009fff;
+}
+.replay_comment_text {
+    font-size: 15px;
+}
+.replay_comment_date {
+    padding-top: 10px;
+}
+.display_message_button {
+    width: fit-content;
+    font-size: 10px;
+    padding: 5px 10px;
+}
+.good_button {
+    font-size: 17px;
 }

@@ -44,7 +44,7 @@ $g = $_GET["g"];
             <?php foreach($users_db as $user): ?>
             <div class="class_member">
                 <p class="" style="color:rgb(187 181 181 / 20%);">user</p>
-                <a class="class_member_name" href="./find_students.php" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
+                <a class="class_member_name" href="find_students.php?search_keyword=<?php echo $user['name']; ?>" style="text-decoration: underline"><?php echo $user["name"]; ?></a>
                 <p class=""style="color:rgb(187 181 181 / 20%);">text</p>
                 <div class="class_member__message">
                     <p class="class_member_introduce">自己紹介:</p><?php echo $user["profile"]; ?>

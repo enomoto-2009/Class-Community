@@ -67,7 +67,7 @@ global $login_user;
             <?php foreach($usernames_db as $username): ?>
                 <div class="username">
                 <p class="" style="color:rgb(187 181 181 / 20%);">user</p>
-                <a class="class_member_name" href="./find_students.php" style="text-decoration: underline"><?php echo $username["name"]; ?></a>
+                <a class="class_member_name" href="find_students.php?search_keyword=<?php echo $username['name']; ?>" style="text-decoration: underline"><?php echo $username["name"]; ?></a>
                 <?php
                 $grades = empty($_GET["g"])? "$users_db[0]['grade_number']": $_GET["g"];
                 $classes = empty($_GET["c"])? "$users_db[0]['class_number']": $_GET["c"];
@@ -80,14 +80,13 @@ global $login_user;
                 <div class="class_member_wrap">
                     <?php foreach($tweets_db as $tweet): ?>
                         <div class="class_member">
-                        <p style="color:white;">ユーザー</p>
-                            <a href="./find_students.php" class="class_member_name" style="text-decoration: underline"><?php echo $tweet["name"]; ?></a>
+                        <p class="class_member_date"><?php echo $tweet["date"]; ?></p>
                             <img src="<?=$tweet["img_name"] ?>" alt="" class="class_picture">
                             <div class="class_member__message">
-                                <p class="class_member_introduce">投稿日時:<?php echo $tweet["date"]; ?></p>
                                 <p class="class_member_introduce">詳細:<?php echo $tweet["text"]; ?></p>
                                 <p class="class_member_introduce">科目:<?php echo $tweet["subject"]; ?></p>
                                 <p class="class_member_introduce">学習時間:<?php echo $tweet["study_time"]; ?></p>
+                                <a class="class_details_link" style="text-decoration: underline">詳細を見る</a>
                             </div>
                         </div>
                     <?php endforeach; ?>

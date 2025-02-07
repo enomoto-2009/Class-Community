@@ -70,8 +70,8 @@ if($moved !== true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-member.css">
-    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage-class-pictures.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class_member.css">
+    <link rel="stylesheet" href="<?= $url; ?>assets/css/classPage_class_study.css">
     <title>Class Community--classpage_class_pictures</title>
     <?php include "parts/head.php"; ?>
 </head>
