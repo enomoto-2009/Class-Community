@@ -44,16 +44,23 @@
         }
         $file_name = basename($_FILES["image"]["name"]);
         $moved = move_uploaded_file($_FILES["image"]["tmp_name"],$file_name);
-
-        // 画像処理終了
-        $set_post_sql = "insert into community_posts(user_name, subject, text, create_date,img_name)
-        values (:user_name, :subject, :text, now(), :img_name)";
-        $param = [":user_name"=> $_SESSION["id"], ":subject"=> $_POST["subject"], ":text"=> $_POST["text"], ":img_name" => "$file_name"];
-        $statement = $db->prepare($set_post_sql);
-        $statement->execute($param);
+        // sql処理
+        try {
+            $set_post_sql = "insert into community_posts(subject, text, create_date, img_name)
+                values (:subject, :text, now(), :img_name)";
+            $param = [
+                ":subject" => $_POST["subject"],
+                ":text" => $_POST["text"],
+                ":img_name" => $file_name
+            ];
+            $statement = $db->prepare($set_post_sql);
+            $statement->execute($param);
+        } catch (PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
     }elseif(!empty($_POST["replay_message"])){
-        $set_replay_sql = "insert into community_replays(post_id,user_name,text,create_date,) values (:post_id, :user_name, :text, now())";
-        $param = [":post_id" => $_POST["post_id"], ":user_name" => $_SESSION["id"], ":text" => $_POST["replay_message"]];
+        $set_replay_sql = "insert into community_replays(post_id,user_name,text,create_date) values (:post_id, :user_name, :text, :create_date)";
+        $param = [":post_id" => $_POST["post_id"], ":user_name" => $_SESSION["id"], ":text" => $_POST["replay_message"], ":create_date" => date("Y/m/d H:i:s") ];
         $statement = $db->prepare($set_replay_sql);
         $statement->execute($param);
     }
@@ -153,6 +160,7 @@
                             <div class="thread_text">
                                 <p class="text">質問内容:<?php echo $post["text"]; ?></p>
                             </div>
+                            <img src="<?php echo $post["img_name"]; ?>" alt="" class="">
                             <div class="replay_wrapper">
                                 <form action="" method="post" class="replay_form">
                                     <p class="comment_message">コメントを書く：</p>

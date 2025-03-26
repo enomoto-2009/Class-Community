@@ -1,6 +1,12 @@
 .edit {
     opacity: 1;
 }
+.delate {
+    display: none;
+}
+.back-button {
+    margin-top: 20px;
+}
 .listMenu__button_replay {
     font-size: 10px;
     color: #fff;
@@ -101,3 +107,4 @@
 .good_button {
     font-size: 17px;
 }
+

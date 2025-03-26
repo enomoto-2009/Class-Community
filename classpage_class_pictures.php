@@ -48,13 +48,21 @@ $destinationPath = generateDestinationPath();
 $file_name = basename($_FILES["image1"]["name"]);
 $moved = move_uploaded_file($_FILES["image1"]["tmp_name"],$file_name);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $imgName = $_POST['image'];
-    $userName = $login_user["name"];
+    $imgName = $_POST['img_name'];
+    $userName = $login_user["id"];
     $user_grade = $login_user["grade_id"];
     $user_class = $login_user["class_id"];
 }
-$sql = "INSERT INTO tweet (image_type, text, user_name,grade,class) VALUES ('$file_name', '$imgName', '$userName','$user_grade','$user_class')";
-$db->query($sql);
+// sql処理
+try {
+$sql = "INSERT INTO tweet (image_type, img_text, user_name,grade,class) VALUES (:image_type, :img_text, :user_name,:grade,:class)";
+$param = [":image_type" => $file_name, ":img_text" => $_POST['img_name'], ":user_name" => $login_user["name"], ":grade" => $login_user["grade_id"], ":class" => $login_user["class_id"]];
+$statement = $db->prepare($sql);
+$statement->execute($param);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
 if($moved !== true) {
     echo "アップロード処理中にエラーが発生しました";
     return;
@@ -81,7 +89,7 @@ if($moved !== true) {
             <div class="picture">
                 <p class="check_text">投稿内容確認</p>
                 <p class="picture_name">投稿先:<?php echo $login_user["grade_id"]; ?>年<?php echo $login_user["class_id"]; ?>組</p>
-                <p class="picture_name">投稿者:<?=$userName?></p>
+                <p class="picture_name">投稿者:<?=$login_user["name"]?></p>
                 <p class="picture_text">概要:<?=$imgName?></p>
                 <img src="<?=basename($_FILES["image1"]["name"])?>" alt="" class="class_picture"><br>
             </div>

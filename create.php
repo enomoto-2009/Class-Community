@@ -1,10 +1,15 @@
 <?php
 require_once "functions.php";
 $db = get_db();
-$sql = "insert into login(name,email,password,grade_id,class_id) values(:name,:email,:password,:grade_number,:class_number)";
-$param = [":name"=> $_POST["name"], ":email"=> $_POST["email"], ":password"=> $_POST["password"],":grade_number"=> $_POST["grade_number"],":class_number"=> $_POST["class_number"]];
-$statement = $db->prepare($sql);
-$statement->execute($param);
+try{
+    $sql = "insert into login(name,email,password,grade_id,class_id) values(:name,:email,:password,:grade_number,:class_number)";
+    $param = [":name"=> $_POST["name"], ":email"=> $_POST["email"], ":password"=> $_POST["password"],":grade_number"=> $_POST["grade_number"],":class_number"=> $_POST["class_number"]];
+    $statement = $db->prepare($sql);
+    $statement->execute($param); 
+}catch (PDOException $e) {
+    echo "エラーが発生しました: " . $e->getMessage();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">

@@ -49,7 +49,7 @@ $destinationPath = generateDestinationPath();
 $file_name = basename($_FILES["image"]["name"]);
 $moved = move_uploaded_file($_FILES["image"]["tmp_name"],$file_name);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userName = $login_user["name"];
+    $userName = $login_user["id"];
     $imgName = $file_name;
     $user_grade = $login_user["grade_id"];
     $user_class = $login_user["class_id"];
@@ -58,8 +58,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = $_POST["subject"];
     $study_time = $_POST["study_time"];
 }
-$sql = "INSERT INTO tweet_study (name,img_name,grade_id,class_id,text,date,subject,study_time) VALUES ('$userName','$imgName','$user_grade','$user_class','$text','$post_time','$subject','$study_time')";
-$db->query($sql);
+try{
+$sql = "INSERT INTO tweet_study (user_name, img_type, grade, class, img_text, date, subject, study_time) VALUES (:user_name, :img_type, :grade, :class, :img_text, now(), :subject, :study_time)";
+$parm = [":user_name" => $userName, ":img_type" => $file_name, ":grade" => $user_grade, ":class" => $user_class, ":img_text" => $text, ":subject" => $subject, ":study_time" => $study_time];
+$statement = $db->prepare($sql);
+$statement->execute($parm);
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+
 if($moved !== true) {
     echo "アップロード処理中にエラーが発生しました";
     return;

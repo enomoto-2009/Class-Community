@@ -1,0 +1,115 @@
+
+.listMenu__buttonLayout4 {
+    opacity: 0.6;
+}
+.main {
+    width: 100%;
+    background-color: rgb(187 181 181 / 20%);
+}
+.select{
+    display: flex;
+    padding: 10px;
+}
+.grades {
+    display: flex;
+    font-size: 17px;
+    background-color: white;
+    border: 1px solid #e0bfbf;
+    border-radius: 5px;
+    padding: fit-content;
+}
+.classes {
+    margin-left: 10px;
+    display: flex;
+    padding: fit-content;
+    border-radius: 5px;
+    font-size: 17px;
+    background-color: white;
+    border: 1px solid #e0bfbf;
+    width: fit-content;
+}
+.find-student {
+    display: flex;
+    padding: 30px 0 30px 80px;
+}
+.find-student-input {
+    display: flex;
+    justify-content: center;
+}
+.searchBox {
+    border: 1px solid #e0bfbf;
+    font-size: 17px;
+    border-radius: 20px;
+    word-break: break-all;
+    padding: 7px 20px;
+}
+.searchBox::placeholder {
+    color: #999696;
+}
+.listMenu__button--group {
+    display: flex;
+    justify-content: center;
+}
+.listMenu__button--group:hover {
+    opacity: 0.6;
+}
+.menu_wraper {
+    border-top: 1px solid #e0bfbf;
+    font-size: 20px;
+    width: 100%;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(187 181 181 / 20%);;
+}
+.grade {
+    margin: 0 70px;
+}
+.class {
+    margin: 0 70px;
+}
+.name {
+    margin: 0 70px;
+}
+.introduce {
+    margin: 0 140px;
+}
+.top {
+    font-weight: bold;
+    
+}
+.student {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid #e0bfbf;
+    border-bottom: 1px solid #e0bfbf;
+}
+.s_grade {
+    margin: 0 60px;
+    margin-right: 94px;
+    width: 40px;
+}
+.s_class {
+    margin: 0 50px;
+    margin-left: 40px;
+    width: 40px;
+}
+.s_name {
+    margin: 0 50px;
+    margin-left: 112px;
+    width: 100px;
+    color: #009fff;
+}
+.s_introduce {
+    margin: 0 50px;
+    width: 220px;
+}
+.submit_button {
+    border: 1px solid #e0bfbf;
+    font-size: 17px;
+    border-radius: 20px;
+    word-break: break-all;
+    padding: 7px 20px;
+    color: black;
+}

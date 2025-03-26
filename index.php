@@ -1,7 +1,7 @@
 <?php require_once "functions.php";
 
 $error_password_message = "";
-if( !empty($_POST["password"])&& !empty($_POST["email"]) && !empty($_POST["school_id"])) {
+if(!empty($_POST["password"]) && !empty($_POST["email"]) && !empty($_POST["school_id"])) {
     $error_message = "";
     $email = $_POST["email"];
     $password = $_POST["password"];

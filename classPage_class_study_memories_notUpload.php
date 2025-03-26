@@ -48,22 +48,7 @@ global $login_user;
         </aside>
         <main class="main">
         <div class="class_members">
-                <div class="classTitle">
-                    <h2 class="classTitleName">中等<?php echo $_GET["g"]; ?>年<?php echo $_GET["c"]; ?>組</h2>
-                </div>
-                <div class="classWraper">
-                    <div class="classMenu">
-                    <div class="listClass__button1 classMember">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--classMember"><i class="fa-solid fa-user-group"></i><a href="./classpage_class_member.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスメンバー</a></button>
-                    </div>
-                    <div class="listClass__button1">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--wacthPicture"><i class="fa-regular fa-images"></i><a href="./classPage_class_pictures_notUpload.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスの写真</a></button>
-                    </div>
-                    <div class="listClass__button1">
-                        <button type="button" class="listClassMenu__button listClassMenu__button--learningRecords"><i class="fa-solid fa-clipboard"></i><a href="./classPage_class_study_memories_notUpload.php?g=<?php echo$_GET["g"];?>&c=<?php echo $_GET["c"];?>" class="">クラスの学習記録</a></button>
-                    </div>
-            </div>
-            
+            <?php include "parts/classpage.php"; ?>
             <?php foreach($usernames_db as $username): ?>
                 <div class="username">
                 <p class="" style="color:rgb(187 181 181 / 20%);">user</p>
@@ -72,7 +57,7 @@ global $login_user;
                 $grades = empty($_GET["g"])? "$users_db[0]['grade_number']": $_GET["g"];
                 $classes = empty($_GET["c"])? "$users_db[0]['class_number']": $_GET["c"];
                 $sql_username = $username["name"];
-                $get_tweets_sql = "select * from tweet_study inner join class on class.id = class_id inner join grade on grade.id = grade_id where grade_number = :grades and class_number = :classes and name = '$sql_username'";
+                $get_tweets_sql = "select * from tweet_study inner join class on class.id = class inner join grade on grade.id = grade where grade_number = :grades and class_number = :classes and user_name = '$sql_username'";
                 $datas = [":grades" => $grades,":classes" => $classes];
                 $sql_datas = array_filter($datas, function ($e) { return !is_array($e); });
                 $tweets_db = get_query($get_tweets_sql,$sql_datas,true);
@@ -81,9 +66,9 @@ global $login_user;
                     <?php foreach($tweets_db as $tweet): ?>
                         <div class="class_member">
                         <p class="class_member_date"><?php echo $tweet["date"]; ?></p>
-                            <img src="<?=$tweet["img_name"] ?>" alt="" class="class_picture">
+                            <img src="<?=$tweet["img_type"] ?>" alt="" class="class_picture">
                             <div class="class_member__message">
-                                <p class="class_member_introduce">詳細:<?php echo $tweet["text"]; ?></p>
+                                <p class="class_member_introduce">詳細:<?php echo $tweet["img_text"]; ?></p>
                                 <p class="class_member_introduce">科目:<?php echo $tweet["subject"]; ?></p>
                                 <p class="class_member_introduce">学習時間:<?php echo $tweet["study_time"]; ?></p>
                                 <a class="class_details_link" style="text-decoration: underline">詳細を見る</a>

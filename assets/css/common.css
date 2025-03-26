@@ -173,6 +173,11 @@ header {
     padding: 5px 15px;
     font-size: 11px;
 }
+.listMenu__button--group {
+    width: 185px;
+    padding: 5px 15px;
+    font-size: 11px;
+}
 .listMenu__buttonLayout {
     margin-top: 10px;
     display: flex;
@@ -188,4 +193,9 @@ header {
     display: flex;
     justify-content: center;
     margin-top: 10px;
+}
+.listMenu__buttonLayout4 {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
 }

@@ -36,6 +36,9 @@ $classes = get_query($get_class_sql,null,true);
                 <button type="button" class="listMenu__button listMenu__button--class edit"><i class="fas fa-user-pen"></i><a href="./tweet.php" class="">クラスページを編集</a></button>
             </div>
             <div class="listMenu__buttonLayout3">
-                <button type="button" class="listMenu__button listMenu__button--community"><i class="fas fa-users"></i><a href="./community.php" class="">コミュニティ</a></button>
+                <button type="button" class="listMenu__button listMenu__button--community"><i class="fa-solid fa-comments"></i><a href="./community.php" class="">学内掲示板</a></button>
+            </div>
+            <div class="listMenu__buttonLayout4">
+                <button type="button" class="listMenu__button listMenu__button--group"><i class="fa-solid fa-user-group"></i><a href="./group.php" class="">コミュニティを作る</a></button>
             </div>
         </div>
